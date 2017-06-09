@@ -1,0 +1,8 @@
+env = Environment(CPPPATH='#/include')
+test = env.Program('test', 'test.c',
+        LIBS=['m', 'hcubature', 'pcubature'],
+        LIBPATH='#/lib')
+
+Depends(test, Import('hcubature'))
+Depends(test, Import('pcubature'))
+

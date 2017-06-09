@@ -1,0 +1,8 @@
+env = Environment(CPPPATH='#/include')
+
+hcubature = env.Library('hcubature', ['hcubature.c'])
+
+pcubature = env.Library('pcubature', ['pcubature.c'])
+Depends(pcubature, Import('clencurt_h'))
+
+Export('hcubature', 'pcubature')

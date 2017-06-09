@@ -1,0 +1,12 @@
+env = Environment()
+clencurt_gen = env.Program('clencurt_gen', 'clencurt_gen.c',
+        LIBS=['m', 'fftw3l', 'fftw3'])
+
+# use clencurt_gen as an input so it is built before this command is run
+clencurt_h = env.Command(
+        target='#/include/clencurt.h',
+        source='',
+        action='src/clencurt_gen > $TARGET')
+Depends(clencurt_h, clencurt_gen)
+
+Export('clencurt_h')
