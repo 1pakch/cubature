@@ -1,4 +1,4 @@
-env = Environment(CPPPATH='#/include')
+env = Environment(CPPPATH='#/include', CFLAGS='-fPIC')
 
 hcubature = env.Library('hcubature', ['hcubature.c'])
 
